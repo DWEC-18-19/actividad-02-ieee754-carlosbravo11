@@ -6,7 +6,6 @@ function ieee754aBinario(numero) {
 }
 
 
-<script type="text/javascript">
             var numeroEntero = 0;  // para el numero dado como variable auxiliar para calcular el binario
             var cadenabinaria = "";  // para poner en número en formato binario
             
@@ -150,4 +149,4 @@ function ieee754aBinario(numero) {
               return svalorpasadobinario;
             }
              
-        </script>
+
