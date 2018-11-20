@@ -1,21 +1,50 @@
 <!DOCTYPE html>
+
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <meta http-equiv="refresh" content="5"> -->
-    <title>Mocha</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mocha/5.2.0/mocha.css" rel="stylesheet" />
-  </head>
-  <body>
-    <div id="mocha"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/5.2.0/mocha.js" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.2.0/chai.js"></script>
-    <script>mocha.setup('bdd');</script>
-    <script src="../js/ieee754.js"></script>
-    <script src="js/test.js"></script>
-    <script>
-      mocha.run();
-    </script>
-  </body>
-</html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script type="text/javascript">
+            var numeroEntero = 0;  // para el numero dado como variable auxiliar para calcular el binario
+            var cadenabinaria = "";  // para poner en número en formato binario
+            
+            var mantisa="";
+            
+            // separa la parte entera y la decimal si hay
+            function obtenerParteEnteraDecimal(ivalordado)
+            {
+                
+                var valordado = ivalordado; // valor que recibe de la caja de texto
+                var dnumeropartido = valordado.split(".");
+                var dParteEntera= dnumeropartido[0];
+                var dParteDecimal= dnumeropartido[1];
+                
+                
+              
+             // signo del número dado 
+                var bsigno = (Math.sign(valordado)===1) ? 0 : 1;
+                document.getElementById('txtsigno').value=  bsigno;
+                
+                console.log(dParteEntera);
+                console.log(dParteDecimal);
+                 
+                    
+                var parteEnteraBinario= Convierte_Binario(dParteEntera);
+                //parte decimal con valor sino no calcula en binario la parte decimal
+                if (dnumeropartido[1] > 0) {    
+                    var parteDecimalBinario = obtenerParteDecimal_ABinario(dParteDecimal);
+                }
+                else {parteDecimalBinario=0;}
+               
+               // numero transformado a binario
+                document.getElementById('verbinario').value="" + parteEnteraBinario + "," + "" + parteDecimalBinario +"";
+                
+                sValorBinarioExponente= exponente(parteEnteraBinario  + parteDecimalBinario );
+                document.getElementById('txtexponente').value=sValorBinarioExponente;
+               
+               // aqui se usa la varible para establecer mantisa
+                 var sValorBinarioMantisa= parteEnteraBinario  + parteDecimalBinario ;
+                 sValorBinarioMantisa= sValorBinarioMantisa.substr(1); // quitamos el bit de la izquierda 
+                  // cargar valor en matisa campo txtmantisa
