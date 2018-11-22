@@ -7,7 +7,7 @@ var// mantisa
 
 main();
  
-
+//doy por ejemplo   el valor 80
 function main() {
   ieee754aBinario(80);
 }
