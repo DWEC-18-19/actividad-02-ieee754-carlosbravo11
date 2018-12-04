@@ -6,7 +6,7 @@ function ieee754aBinario(numero) {
  
       // dado un numero en formato string , hay que separar la parte decimal de la parte entera
        
-      var valordado = numero; // valor que recibe de la caja de texto
+       var valordado = numero.toString(); // valor que recibe de la caja de texto
       var dnumeropartido = valordado.split(".");
       var dParteEntera= dnumeropartido[0];
       
