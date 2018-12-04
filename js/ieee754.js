@@ -1,16 +1,21 @@
 'use strict';
 
 function ieee754aBinario(numero) {
-   //numero = "00000000000000000000000000000000";
+  //numero = "00000000000000000000000000000000";
 //   return numero;
  
       // dado un numero en formato string , hay que separar la parte decimal de la parte entera
-       
-       var valordado = numero.toString(); // valor que recibe de la caja de texto
+    var esnumero = parseFloat(numero);
+    
+    if (isNaN(esnumero===false)) { return; }  // solo acepta numeros tanto si los pasamos como string como numero
+        
+      var valordado = numero.toString();          // valor que recibe de la caja de texto
       var dnumeropartido = valordado.split(".");
       var dParteEntera= dnumeropartido[0];
       
+      // en caso de no tener parte decimal mas adenlante si en undefined o nada lo convierte a 0 si hay 
       var dParteDecimal= dnumeropartido[1];
+  
       var cadenabinaria=""; 
       
          // el 1 es negativo, busca en la cadena el simbolo - 
@@ -18,7 +23,9 @@ function ieee754aBinario(numero) {
      
       ////////////cadenabinaria=Convierte_Binario(dParteEntera);  
       var numeroEntero = parseInt(dParteEntera);
-  var restoAlmacenado;
+      
+      
+      var restoAlmacenado;
   
        cadenabinaria="";
         do {
